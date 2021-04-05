@@ -1,0 +1,5 @@
+obj
+bin
+*.dccache
+appsettings.json
+*.db
