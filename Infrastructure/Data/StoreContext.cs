@@ -10,5 +10,7 @@ namespace Infrastructure.Data
     }
 
     public DbSet<Product> Products { get; set; } // will allow us to make queries and get results back from our db. use for SQL injection?
+    public DbSet<ProductBrand> ProductBrands { get; set; }
+    public DbSet<ProductType> ProductTypes {get; set; }
   }
 }
