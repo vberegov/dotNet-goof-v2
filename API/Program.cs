@@ -22,6 +22,7 @@ namespace API
                 {
                     var context = services.GetRequiredService<StoreContext>();
                     await context.Database.MigrateAsync(); //will create db if it doesn't exist - add some malicious code around here?
+                    await StoreContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception e)
                 {
