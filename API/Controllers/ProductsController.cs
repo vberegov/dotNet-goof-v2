@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-  [ApiController]
+  [ApiController] //responsible for mapping parameters that are passed into the methods
   [Route("api/[controller]")]
   public class ProductsController : ControllerBase
   {
@@ -28,10 +28,23 @@ namespace API.Controllers
       return Ok(products);
     }
 
+    //api controller is doing validation that root parameter is an int
     [HttpGet("{id}")]
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
       return await _repo.GetProductByIdAsync(id);
+    }
+
+    [HttpGet("brands")]
+    public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
+    {
+      return Ok(await _repo.GetProductBrandsAsync());
+    }
+
+    [HttpGet("types")]
+    public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
+    {
+      return Ok(await _repo.GetProductTypesAsync());
     }
   }
 }
