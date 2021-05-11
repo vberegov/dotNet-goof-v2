@@ -3,3 +3,4 @@ bin
 *.dccache
 appsettings.json
 *.db
+.gitignore
